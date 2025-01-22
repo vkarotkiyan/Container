@@ -8,38 +8,38 @@ int main(int argc, char* argv[])
 
     try
     {
-        // Инициализация объекта array типа MyIntArray
+        // РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РѕР±СЉРµРєС‚Р° array С‚РёРїР° MyIntArray
         MyIntArray array(10);
         int arr[10] = { 5,7,12,56,34,9,11,23,17,8 };
         for (int i = 0; i < 10; ++i)
             array[i] = arr[i];
 
-        cout << "Массив array:\n"; 
+        cout << "РњР°СЃСЃРёРІ array:\n"; 
         for (int i = 0; i < array.getLength(); ++i)
             cout << array[i] << ' ';
         cout << '\n';
 
         MyIntArray b{ array }; 
-        cout << "Массив b инициализируем массивом array: \n";
+        cout << "РњР°СЃСЃРёРІ b РёРЅРёС†РёР°Р»РёР·РёСЂСѓРµРј РјР°СЃСЃРёРІРѕРј array: \n";
         for (int i = 0; i < b.getLength(); ++i)
             cout << b[i] << ' ';
         cout << '\n';
 
-        array.resize(12); // Изменение длины
-        cout << "Увеличение длины массива array на 2: \n";
+        array.resize(12); // РР·РјРµРЅРµРЅРёРµ РґР»РёРЅС‹
+        cout << "РЈРІРµР»РёС‡РµРЅРёРµ РґР»РёРЅС‹ РјР°СЃСЃРёРІР° array РЅР° 2: \n";
         for (int i = 0; i < array.getLength(); ++i)
             cout << array[i] << ' ';
         cout << '\n';
 
-        array.resize(8); // Изменение длины
-        cout << "Уменьшение длины массива array на 4: \n";
+        array.resize(8); // РР·РјРµРЅРµРЅРёРµ РґР»РёРЅС‹
+        cout << "РЈРјРµРЅСЊС€РµРЅРёРµ РґР»РёРЅС‹ РјР°СЃСЃРёРІР° array РЅР° 4: \n";
         for (int i = 0; i < array.getLength(); ++i)
             cout << array[i] << ' ';
         cout << '\n';
 
         try
         {
-            array.insertBefore(222, 5); // Вставка элемента
+            array.insertBefore(222, 5); // Р’СЃС‚Р°РІРєР° СЌР»РµРјРµРЅС‚Р°
         }
         catch (MyException& ex)
         {
@@ -47,31 +47,31 @@ int main(int argc, char* argv[])
         }
         try
         {
-            array.remove(3); // Удаление элемента
+            array.remove(3); // РЈРґР°Р»РµРЅРёРµ СЌР»РµРјРµРЅС‚Р°
         }
         catch (MyException& ex)
         {
             cout << ex.what() << endl;
         }
-        array.insertAtEnd(333); // Вставка в конец
-        array.insertAtBeginning(444); // Вставка в начало
+        array.insertAtEnd(333); // Р’СЃС‚Р°РІРєР° РІ РєРѕРЅРµС†
+        array.insertAtBeginning(444); // Р’СЃС‚Р°РІРєР° РІ РЅР°С‡Р°Р»Рѕ
 
-        cout << "Массив array после удаления одного и добавления трех элементов: \n";
+        cout << "РњР°СЃСЃРёРІ array РїРѕСЃР»Рµ СѓРґР°Р»РµРЅРёСЏ РѕРґРЅРѕРіРѕ Рё РґРѕР±Р°РІР»РµРЅРёСЏ С‚СЂРµС… СЌР»РµРјРµРЅС‚РѕРІ: \n";
         for (int i = 0; i < array.getLength(); ++i)
             cout << array[i] << ' ';
         cout << '\n';
 
         try
         {
-        cout << "Элемент с индексом 5: " << array[5] << endl; // Доступ к элементу по индексу
+        cout << "Р­Р»РµРјРµРЅС‚ СЃ РёРЅРґРµРєСЃРѕРј 5: " << array[5] << endl; // Р”РѕСЃС‚СѓРї Рє СЌР»РµРјРµРЅС‚Сѓ РїРѕ РёРЅРґРµРєСЃСѓ
         }
         catch (Bad_Range& ex)
         {
             cout << ex.what() << endl;
         }
 
-        b = array; // Копирование
-        cout << "Массив b поcле копирования (b = array): \n";
+        b = array; // РљРѕРїРёСЂРѕРІР°РЅРёРµ
+        cout << "РњР°СЃСЃРёРІ b РїРѕcР»Рµ РєРѕРїРёСЂРѕРІР°РЅРёСЏ (b = array): \n";
         for (int i = 0; i < b.getLength(); ++i)
             cout << b[i] << ' ';
         cout << '\n';
@@ -79,7 +79,7 @@ int main(int argc, char* argv[])
         b = b;
         array = array;
 
-        array.findValue(9); // Поиск элемента
+        array.findValue(9); // РџРѕРёСЃРє СЌР»РµРјРµРЅС‚Р°
         array.findValue(107);
     }
     catch (MyException& ex)

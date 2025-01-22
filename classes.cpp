@@ -1,28 +1,29 @@
 #include "classes.h"
 #include <iostream>
 #include <exception>
+#include <algorithm>
 using namespace  std;
 
 MyIntArray::MyIntArray(int length) : _length(length)
 {
     if (_length < 0)
     {
-        throw MyException("Длина массива не может быть меньше 0! (1)\n");
+        throw MyException("Р”Р»РёРЅР° РјР°СЃСЃРёРІР° РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РјРµРЅСЊС€Рµ 0! (1)\n");
     }
     _data = new int[length];
-    //cout << "Массив создан!" << endl;
+    //cout << "РњР°СЃСЃРёРІ СЃРѕР·РґР°РЅ!" << endl;
 }
 
 MyIntArray::~MyIntArray()
 {
     delete[] _data;
-    //cout << "Массив уничтожен!" << endl;
+    //cout << "РњР°СЃСЃРёРІ СѓРЅРёС‡С‚РѕР¶РµРЅ!" << endl;
 }
 
 void MyIntArray::erase()
 {
     delete[] _data;
-    _data = nullptr; // указывает в никуда
+    _data = nullptr; // СѓРєР°Р·С‹РІР°РµС‚ РІ РЅРёРєСѓРґР°
     _length = 0;
 }
 
@@ -30,7 +31,7 @@ int& MyIntArray::operator[](int index)
 {
     if (index < 0 || index >= _length)
     {
-        throw Bad_Range(); // Для соответствия заданию
+        throw Bad_Range(); // Р”Р»СЏ СЃРѕРѕС‚РІРµС‚СЃС‚РІРёСЏ Р·Р°РґР°РЅРёСЋ
     }
     return _data[index];
 }
@@ -53,7 +54,7 @@ void MyIntArray::resize(int newLength)
 {
     if (newLength < 0)
     {
-        throw MyException("Длина массива не может быть меньше 0! (2)\n");
+        throw MyException("Р”Р»РёРЅР° РјР°СЃСЃРёРІР° РЅРµ РјРѕР¶РµС‚ Р±С‹С‚СЊ РјРµРЅСЊС€Рµ 0! (2)\n");
     }
     if (newLength == _length)
         return;
@@ -82,7 +83,7 @@ MyIntArray::MyIntArray(const MyIntArray& a) : MyIntArray(a.getLength())
 
 MyIntArray& MyIntArray::operator=(const MyIntArray& a)
 {
-    if (&a == this) // Самопроверка
+    if (&a == this) // РЎР°РјРѕРїСЂРѕРІРµСЂРєР°
         return *this;
     reallocate(a.getLength());
     std::copy_n(a._data, _length, _data);
@@ -93,7 +94,7 @@ void MyIntArray::insertBefore(int value, int index)
 {
     if (index < 0 || index > _length)
     {
-        throw MyException("Неверный индекс. (2)\n");
+        throw MyException("РќРµРІРµСЂРЅС‹Р№ РёРЅРґРµРєСЃ. (2)\n");
     }
     int* data = new int[_length + 1]; 
     std::copy_n(_data, index, data); 
@@ -108,7 +109,7 @@ void MyIntArray::remove(int index)
 {
     if (index < 0 || index >= _length)
     {
-        throw MyException("Неверный индекс. (3)\n");
+        throw MyException("РќРµРІРµСЂРЅС‹Р№ РёРЅРґРµРєСЃ. (3)\n");
     }
     if (_length == 1) 
     {
@@ -139,11 +140,11 @@ void MyIntArray::findValue(int value)
     {
         if (_data[i] == value)
         {
-            cout << "Индекс элемента " << value << ": " << i << endl;
+            cout << "РРЅРґРµРєСЃ СЌР»РµРјРµРЅС‚Р° " << value << ": " << i << endl;
             return;
         }
     }
-    cout << "Элемент " << value << " не найден." << endl;
+    cout << "Р­Р»РµРјРµРЅС‚ " << value << " РЅРµ РЅР°Р№РґРµРЅ." << endl;
 }
 
 MyException::MyException(string message) : _message(message)
@@ -157,15 +158,15 @@ string MyException::getErrorMessage() const
 
 const char* MyException::what() const noexcept
 {
-    return "Мое сообщение об ошибке!\n";
+    return "РњРѕРµ СЃРѕРѕР±С‰РµРЅРёРµ РѕР± РѕС€РёР±РєРµ!\n";
 }
 
 const char* Bad_Range::what() const noexcept
 {
-    return "Выход за пределы диапазона!\n";
+    return "Р’С‹С…РѕРґ Р·Р° РїСЂРµРґРµР»С‹ РґРёР°РїР°Р·РѕРЅР°!\n";
 }
 
 const char* Bad_Length::what() const noexcept
 {
-    return "Неверная длина массива.\n";
+    return "РќРµРІРµСЂРЅР°СЏ РґР»РёРЅР° РјР°СЃСЃРёРІР°.\n";
 }

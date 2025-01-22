@@ -7,20 +7,20 @@ class MyIntArray
 {
 public:
     MyIntArray() = default;
-    MyIntArray(int); // Создание массива
+    MyIntArray(int); // РЎРѕР·РґР°РЅРёРµ РјР°СЃСЃРёРІР°
     ~MyIntArray(); 
-    void erase(); // Удаление массива
-    int& operator[](int); // Доступ к элементу
-    int getLength() const; // Получение длины массива
-    void reallocate(int); // Уничтожение массива и выделение памяти под новый размер
-    void resize(int); // Изменение размера массива
-    MyIntArray(const MyIntArray&); // Копирование
-    MyIntArray& operator=(const MyIntArray&); // Перегрузка =
-    void insertBefore(int, int); // Вставка элемента перед
-    void remove(int); // Удаление элемента
-    void insertAtBeginning(int); // Вставка элемента в начало
-    void insertAtEnd(int); // Вставка элемента в конец
-    void findValue(int); // Поиск элемента
+    void erase(); // РЈРґР°Р»РµРЅРёРµ РјР°СЃСЃРёРІР°
+    int& operator[](int); // Р”РѕСЃС‚СѓРї Рє СЌР»РµРјРµРЅС‚Сѓ
+    int getLength() const; // РџРѕР»СѓС‡РµРЅРёРµ РґР»РёРЅС‹ РјР°СЃСЃРёРІР°
+    void reallocate(int); // РЈРЅРёС‡С‚РѕР¶РµРЅРёРµ РјР°СЃСЃРёРІР° Рё РІС‹РґРµР»РµРЅРёРµ РїР°РјСЏС‚Рё РїРѕРґ РЅРѕРІС‹Р№ СЂР°Р·РјРµСЂ
+    void resize(int); // РР·РјРµРЅРµРЅРёРµ СЂР°Р·РјРµСЂР° РјР°СЃСЃРёРІР°
+    MyIntArray(const MyIntArray&); // РљРѕРїРёСЂРѕРІР°РЅРёРµ
+    MyIntArray& operator=(const MyIntArray&); // РџРµСЂРµРіСЂСѓР·РєР° =
+    void insertBefore(int, int); // Р’СЃС‚Р°РІРєР° СЌР»РµРјРµРЅС‚Р° РїРµСЂРµРґ
+    void remove(int); // РЈРґР°Р»РµРЅРёРµ СЌР»РµРјРµРЅС‚Р°
+    void insertAtBeginning(int); // Р’СЃС‚Р°РІРєР° СЌР»РµРјРµРЅС‚Р° РІ РЅР°С‡Р°Р»Рѕ
+    void insertAtEnd(int); // Р’СЃС‚Р°РІРєР° СЌР»РµРјРµРЅС‚Р° РІ РєРѕРЅРµС†
+    void findValue(int); // РџРѕРёСЃРє СЌР»РµРјРµРЅС‚Р°
 private:
     int _length;
     int* _data;
