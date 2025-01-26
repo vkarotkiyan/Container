@@ -1,10 +1,12 @@
 #include "classes.h"
 #include <iostream>
+#include <windows.h>
 using namespace  std;
 
 int main(int argc, char* argv[])
 {
-    setlocale(LC_ALL, "");
+    SetConsoleOutputCP( 65001 );
+    //setlocale(LC_ALL, "");
 
     try
     {
@@ -86,6 +88,7 @@ int main(int argc, char* argv[])
     {
         cout << ex.getErrorMessage() << ex.what() << endl;
     }
+    system("pause");
 
     return 0;
 }
