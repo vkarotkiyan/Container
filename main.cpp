@@ -1,12 +1,12 @@
 #include "classes.h"
 #include <iostream>
-#include <windows.h>
+#include <windows.h> // Закомментировать для Linux
 using namespace  std;
 
 int main(int argc, char* argv[])
 {
-    SetConsoleOutputCP( 65001 );
-    //setlocale(LC_ALL, "");
+    //setlocale(LC_ALL, ""); // Закомментировать для Windows
+    SetConsoleOutputCP( 65001 ); // Закомментировать для Linux
 
     try
     {
